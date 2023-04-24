@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="books-container">
+    <h2>Books List</h2>
+
+    {% for book in books %}
+    <div class="books">
+      <h4>Bookname:{{ book.name}}</h4>
+      <!-- <a href="{{ url_for('check_detail', index=loop.index0) }}">Details</a>     -->
+      <a href="/books/{{books.index(book)}}">Details</a> 
+    </div>
+    {% endfor %}
+    </div>
+
+    {% endblock %}

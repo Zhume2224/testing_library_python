@@ -1,0 +1,39 @@
+
+<h3> Book Details </h3>
+<p>Name: {{book.name}}</p>
+<p>Author: {{book.author}}</p>
+<p>Genre: {{book.genre}}</p>
+
+{% if book.checked_out== True %}
+<p>checked out</p>
+{% endif %}
+
+{% if book.checked_out== False %}
+<p>checked in</p>
+{% endif %}
+
+<a href="/books"><input type="submit" value="Back"></a>
+
+
+<form action="/books/delete" method="post">
+  <!-- action leads to  "/books/delete", it will triger app.route('/books/delete') -->
+  <input type="hidden" name="book" value="{{book.name}}">
+  <!-- in the form dictionary, book is key, {{book.name}} is the value -->
+<input type="submit" value="Delete">
+</form>
+
+
+<form action="/books/check_in" method="post">
+<input type="hidden" name="book" value="{{book.name}}">
+<input type="submit" value="Check-In">
+</form>
+
+
+<form action="/books/check_out" method="post">
+  <input type="hidden" name="book" value="{{book.name}}">
+  <input type="submit" value="Check-Out">
+  </form>
+  
+
+  
+
